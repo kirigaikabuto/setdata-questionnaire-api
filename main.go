@@ -97,8 +97,7 @@ func run(c *cli.Context) error {
 	}
 	parseEnvFile()
 	amqpConfig := amqp.Config{
-		Host: amqpHost,
-		Port: amqpPort,
+		AMQPUrl: "amqps://futohrkk:Qq4imfTpgcDawG6bzuSnJALRg-a6xqZl@toad.rmq.cloudamqp.com/futohrkk",
 	}
 	sess := amqp.NewSession(amqpConfig)
 	err := sess.Connect()

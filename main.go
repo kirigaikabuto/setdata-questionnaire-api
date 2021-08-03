@@ -117,6 +117,14 @@ func run(c *cli.Context) error {
 	router.Methods("PUT").Path("/questions").HandlerFunc(httpEndpoints.MakeUpdateQuestionEndpoint())
 	router.Methods("GET").Path("/questions").HandlerFunc(httpEndpoints.MakeListQuestionEndpoint())
 	router.Methods("PUT").Path("/questions/add").HandlerFunc(httpEndpoints.MakeAddFieldToQuestionEndpoint())
+	router.Methods("GET").Path("/questions/{name}").HandlerFunc(httpEndpoints.MakeGetQuestionsByQuestionnaireName("name"))
+
+	router.Methods("POST").Path("/questionnaire").HandlerFunc(httpEndpoints.MakeCreateQuestionnaireEndpoint())
+	router.Methods("GET").Path("/questionnaire").HandlerFunc(httpEndpoints.MakeListQuestionnaireEndpoint())
+	router.Methods("GET").Path("/questionnaire/{name}").HandlerFunc(httpEndpoints.MakeGetQuestionnaireByName("name"))
+	router.Methods("PUT").Path("/questionnaire/add").HandlerFunc(httpEndpoints.MakeAddQuestionToQuestionnaireEndpoint())
+	router.Methods("PUT").Path("/questionnaire/remove").HandlerFunc(httpEndpoints.MakeDeleteQuestionFromQuestionnaireEndpoint())
+
 	http.ListenAndServe(":"+port, router)
 	return nil
 }

@@ -125,6 +125,9 @@ func run(c *cli.Context) error {
 	router.Methods("PUT").Path("/questionnaire/add").HandlerFunc(httpEndpoints.MakeAddQuestionToQuestionnaireEndpoint())
 	router.Methods("PUT").Path("/questionnaire/remove").HandlerFunc(httpEndpoints.MakeDeleteQuestionFromQuestionnaireEndpoint())
 
+	router.Methods("POST").Path("/order").HandlerFunc(httpEndpoints.MakeCreateOrderEndpoint())
+	router.Methods("GET").Path("/order/{name}").HandlerFunc(httpEndpoints.MakeListOrderEndpoint("name"))
+
 	http.ListenAndServe(":"+port, router)
 	return nil
 }

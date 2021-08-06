@@ -7,6 +7,6 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/joho/godotenv v1.3.0
 	github.com/kirigaikabuto/setdata-common v1.0.1-0.20210802114433-ce62b657191a
-	github.com/kirigaikabuto/setdata_questionnaire v0.0.2-0.20210806141601-9d6eeb73e86a
+	github.com/kirigaikabuto/setdata_questionnaire v0.0.2-0.20210806142027-e463bf9c24f7
 	github.com/urfave/cli v1.22.5
 )

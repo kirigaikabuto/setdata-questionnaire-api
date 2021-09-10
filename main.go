@@ -127,7 +127,7 @@ func run(c *cli.Context) error {
 
 	router.Methods("POST").Path("/order").HandlerFunc(httpEndpoints.MakeCreateOrderEndpoint())
 	router.Methods("GET").Path("/order/{name}").HandlerFunc(httpEndpoints.MakeListOrderEndpoint("name"))
-
+	router.Methods("POST").Path("/order/consultation").HandlerFunc(httpEndpoints.MakeSendOrderForConsultation())
 	http.ListenAndServe(":"+port, router)
 	return nil
 }
